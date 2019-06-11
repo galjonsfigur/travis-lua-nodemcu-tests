@@ -7,7 +7,7 @@ LUA_FILES_TO_CHECK=`find lua_examples -iname "*.lua"`
 echo "Installing Lua 5.3, LuaRocks and Luacheck"
 (
   cd "$TRAVIS_BUILD_DIR" || exit
-  bash localua.sh cache/localua || exit
+  bash tools/travis/localua.sh cache/localua || exit
   cache/localua/bin/luarocks install luacheck || exit
 )
 
