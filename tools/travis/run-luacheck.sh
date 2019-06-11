@@ -2,7 +2,7 @@
 
 set -e
 
-LUA_FILES_TO_CHECK=`find lua_examples -iname "*.lua"`
+LUA_FILES_TO_CHECK=$(find lua_examples -iname "*.lua")
 
 echo "Installing Lua 5.3, LuaRocks and Luacheck"
 (
@@ -11,7 +11,7 @@ echo "Installing Lua 5.3, LuaRocks and Luacheck"
   cache/localua/bin/luarocks install luacheck || exit
 )
 
-echo Static analysys of $LUA_FILES 
+echo Static analysys of $(LUA_FILES) 
 (
-  cache/localua/bin/luacheck --config luacheck_config.lua $LUA_FILES_TO_CHECK || exit
+  cache/localua/bin/luacheck --config luacheck_config.lua $(LUA_FILES_TO_CHECK) || exit
 )

@@ -20,8 +20,6 @@ addons:
     packages:
     - python-serial
     - srecord
-#   - unzip
-#   - libreadline-dev
 cache:
   - directories:
     - cache
