@@ -10,11 +10,11 @@ matrix:
           env: 
           - OS="$TRAVIS_OS_NAME"
           - LUACC=./luac.cross
-#        - os: windows
-#          env: 
-#          - MSBUILD_PATH="c:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
-#          - OS="$TRAVIS_OS_NAME"
-#          - LUACC=msvc/luac-cross/x64/Debug/luac.cross.exe
+        - os: windows
+          env: 
+          - MSBUILD_PATH="c:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
+          - OS="$TRAVIS_OS_NAME"
+          - LUACC=msvc/luac-cross/x64/Debug/luac.cross.exe
 addons:
   apt:
     packages:
@@ -35,3 +35,4 @@ script:
 #- echo Checking syntax of $LUA_FILES
 #- $LUACC -p $LUA_FILES
 - if [ "$OS" = "linux" ]; then bash "$TRAVIS_BUILD_DIR"/tools/travis/run-luacheck.sh || true ; fi
+- if [ "$OS" = "windows" ]; then bash "$TRAVIS_BUILD_DIR"/tools/travis/run-luacheck-windows.sh; fi
